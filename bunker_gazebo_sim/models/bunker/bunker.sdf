@@ -1,0 +1,1675 @@
+<?xml version="1.0" ?>
+<sdf version='1.7'>
+  <model name='bunker_description'>
+  
+    <!-- Just for testing
+    <joint name='world_to_base_link' type='revolute'>
+      <pose relative_to='__model__'>0 0 0.5 0 0 0</pose>
+      <parent>world</parent>
+      <child>base_link</child>
+    </joint> -->
+
+    <link name='base_link'>
+    <!-- <pose relative_to='world_to_base_link'>0 0 0 0 0 0</pose> -->
+
+      <inertial>
+        <pose>0.021241 0.004755 -0.127581 0 0 0</pose>
+        <mass>22</mass>
+        <inertia>
+          <ixx>0.607716</ixx>
+          <ixy>1.92178e-05</ixy>
+          <ixz>-0.0365321</ixz>
+          <iyy>1.70041</iyy>
+          <iyz>2.16963e-05</iyz>
+          <izz>1.84232</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='base_link_collision'>
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/bunker_no_tracker.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='base_link_visual'>
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/bunker_no_tracker.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="tracker_left">
+      <!--
+      <collision name="tracker_left_collision">
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/cube_left.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      -->
+
+      <visual name="tracker_left_visual">
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/tracker_left.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="tracker_left_joint" type="fixed">
+      <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+      <parent>base_link</parent>
+      <child>tracker_left</child>
+    </joint>
+
+    <link name="tracker_right">
+      <!--
+      <collision name="tracker_right_collision">
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/cube_right.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      -->
+
+      <visual name="tracker_right_visual">
+        <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://bunker_common/meshes/tracker_right.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="tracker_right_joint" type="fixed">
+      <pose>0.53 -0.392 -0.358 1.57 0 3.14</pose> 
+      <parent>base_link</parent>
+      <child>tracker_right</child>
+    </joint>
+    
+    <joint name='front_left_wheel_rol1_joint' type='revolute'>
+      <pose relative_to='base_link'>0.37551 0.3495 -0.22305 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_left_wheel_rol1_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_left_wheel_rol1_link'>
+      <pose relative_to='front_left_wheel_rol1_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 0 -0.072 0 0 0</pose>
+        <mass>0.190328</mass>
+        <inertia>
+          <ixx>6.58751e-05</ixx>
+          <ixy>-1.46559e-09</ixy>
+          <ixz>-8.34967e-12</ixz>
+          <iyy>6.58796e-05</iyy>
+          <iyz>-2.4786e-12</iyz>
+          <izz>0.000112722</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_left_wheel_rol1_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_left_wheel_rol1_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_left_wheel_rol2_joint' type='revolute'>
+      <pose relative_to='base_link'>0.29039 0.3495 -0.28104 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_left_wheel_rol2_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_left_wheel_rol2_link'>
+      <pose relative_to='front_left_wheel_rol2_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 0 -0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>1.15789e-20</ixy>
+          <ixz>1.35634e-21</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>6.03698e-23</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_left_wheel_rol2_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_left_wheel_rol2_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_left_wheel_rol3_joint' type='fixed'>
+      <pose relative_to='base_link'>0.29603 0.3495 -0.087 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_left_wheel_rol3_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_left_wheel_rol3_link'>
+      <pose relative_to='front_left_wheel_rol3_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>3.4e-05 -2.7e-05 -0.07015 0 0 0</pose>
+        <mass>0.245835</mass>
+        <inertia>
+          <ixx>0.000105254</ixx>
+          <ixy>1.32328e-08</ixy>
+          <ixz>3.84295e-11</ixz>
+          <iyy>0.000105249</iyy>
+          <iyz>-1.41156e-11</iyz>
+          <izz>0.000173281</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_left_wheel_rol3_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_left_wheel_rol3_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_left_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>0.44403 0.3495 -0.12853 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_left_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_left_wheel_link'>
+      <pose relative_to='front_left_wheel_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 -0 -0.072 0 0 0</pose>
+        <mass>0.392034</mass>
+        <inertia>
+          <ixx>0.000378441</ixx>
+          <ixy>5.60823e-21</ixy>
+          <ixz>3.04208e-20</ixz>
+          <iyy>0.000378441</iyy>
+          <iyz>-7.56627e-21</iyz>
+          <izz>0.000710151</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_left_wheel_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_left_wheel_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_right_wheel_rol1_joint' type='revolute'>
+      <pose relative_to='base_link'>0.37551 -0.3495 -0.22305 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_right_wheel_rol1_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_right_wheel_rol1_link'>
+      <pose relative_to='front_right_wheel_rol1_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 0 0.072 0 0 0</pose>
+        <mass>0.190328</mass>
+        <inertia>
+          <ixx>6.58751e-05</ixx>
+          <ixy>-1.46559e-09</ixy>
+          <ixz>-8.34967e-12</ixz>
+          <iyy>6.58796e-05</iyy>
+          <iyz>-2.4786e-12</iyz>
+          <izz>0.000112722</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_right_wheel_rol1_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_right_wheel_rol1_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_right_wheel_rol2_joint' type='revolute'>
+      <pose relative_to='base_link'>0.29039 -0.3495 -0.28104 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_right_wheel_rol2_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_right_wheel_rol2_link'>
+      <pose relative_to='front_right_wheel_rol2_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 -0 0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>6.2896e-21</ixy>
+          <ixz>2.14011e-21</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>1.2771e-22</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_right_wheel_rol2_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_right_wheel_rol2_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_right_wheel_rol3_joint' type='fixed'>
+      <pose relative_to='base_link'>0.29603 -0.3495 -0.087 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_right_wheel_rol3_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_right_wheel_rol3_link'>
+      <pose relative_to='front_right_wheel_rol3_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>3.5e-05 -2.7e-05 0.070928 0 0 0</pose>
+        <mass>0.240893</mass>
+        <inertia>
+          <ixx>0.000105035</ixx>
+          <ixy>1.32328e-08</ixy>
+          <ixz>3.84295e-11</ixz>
+          <iyy>0.00010503</iyy>
+          <iyz>-1.41156e-11</iyz>
+          <izz>0.000172982</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_right_wheel_rol3_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_right_wheel_rol3_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='front_right_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>0.44403 -0.3495 -0.12853 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>front_right_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='front_right_wheel_link'>
+      <pose relative_to='front_right_wheel_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 0 0.072 0 0 0</pose>
+        <mass>0.392034</mass>
+        <inertia>
+          <ixx>0.000378441</ixx>
+          <ixy>3.37302e-21</ixy>
+          <ixz>2.71827e-20</ixz>
+          <iyy>0.000378441</iyy>
+          <iyz>-7.32822e-21</iyz>
+          <izz>0.000710151</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='front_right_wheel_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='front_right_wheel_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_left_wheel_rol1_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.23111 0.3495 -0.27671 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_left_wheel_rol1_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_left_wheel_rol1_link'>
+      <pose relative_to='rear_left_wheel_rol1_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 0 -0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>-1.73824e-20</ixy>
+          <ixz>-2.5316e-21</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>-3.13741e-21</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_left_wheel_rol1_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_left_wheel_rol1_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_left_wheel_rol2_joint' type='revolute'>
+      <pose relative_to='base_link'>0.043885 0.3495 -0.27671 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_left_wheel_rol2_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_left_wheel_rol2_link'>
+      <pose relative_to='rear_left_wheel_rol2_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 0 -0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>9.82929e-22</ixy>
+          <ixz>1.1099e-21</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>-4.81322e-21</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_left_wheel_rol2_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_left_wheel_rol2_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_left_wheel_rol3_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.28597 0.3495 -0.087 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_left_wheel_rol3_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_left_wheel_rol3_link'>
+      <pose relative_to='rear_left_wheel_rol3_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 -5.3e-05 -0.07015 0 0 0</pose>
+        <mass>0.245836</mass>
+        <inertia>
+          <ixx>0.000105265</ixx>
+          <ixy>7.98232e-12</ixy>
+          <ixz>6.804e-11</ixz>
+          <iyy>0.000105238</iyy>
+          <iyz>-2.72106e-11</iyz>
+          <izz>0.000173281</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_left_wheel_rol3_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_left_wheel_rol3_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_left_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.38871 0.295 -0.19381 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_left_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_left_wheel_link'>
+      <pose relative_to='rear_left_wheel_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 0 -0.024605 0 0 0</pose>
+        <mass>1.35828</mass>
+        <inertia>
+          <ixx>0.00232456</ixx>
+          <ixy>-1.61343e-09</ixy>
+          <ixz>-4.56707e-13</ixz>
+          <iyy>0.00232457</iyy>
+          <iyz>-1.36036e-18</iyz>
+          <izz>0.00308348</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_left_wheel_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_left_wheel_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_right_wheel_rol1_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.23111 -0.3495 -0.27671 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_right_wheel_rol1_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_right_wheel_rol1_link'>
+      <pose relative_to='rear_right_wheel_rol1_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 -0 0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>-7.93399e-21</ixy>
+          <ixz>-2.13342e-21</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>-3.23624e-21</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_right_wheel_rol1_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_right_wheel_rol1_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.1_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_right_wheel_rol2_joint' type='revolute'>
+      <pose relative_to='base_link'>0.043885 -0.3495 -0.27671 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_right_wheel_rol2_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_right_wheel_rol2_link'>
+      <pose relative_to='rear_right_wheel_rol2_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>-0 -0 0.072 0 0 0</pose>
+        <mass>0.271193</mass>
+        <inertia>
+          <ixx>0.000179574</ixx>
+          <ixy>6.30058e-22</ixy>
+          <ixz>1.17534e-22</ixz>
+          <iyy>0.000179574</iyy>
+          <iyz>-3.27347e-21</iyz>
+          <izz>0.000332595</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_right_wheel_rol2_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_right_wheel_rol2_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.2_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_right_wheel_rol3_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.28597 -0.3495 -0.087 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_right_wheel_rol3_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_right_wheel_rol3_link'>
+      <pose relative_to='rear_right_wheel_rol3_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 -5.3e-05 0.070115 0 0 0</pose>
+        <mass>0.245836</mass>
+        <inertia>
+          <ixx>0.000105265</ixx>
+          <ixy>7.98232e-12</ixy>
+          <ixz>6.804e-11</ixz>
+          <iyy>0.000105238</iyy>
+          <iyz>-2.72106e-11</iyz>
+          <izz>0.000173281</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_right_wheel_rol3_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_right_wheel_rol3_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4.3_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    
+    <joint name='rear_right_wheel_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.38871 -0.295 -0.19381 1.5708 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>rear_right_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+    
+    <link name='rear_right_wheel_link'>
+      <pose relative_to='rear_right_wheel_joint'>0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <pose>0 0 0.024593 0 0 0</pose>
+        <mass>1.35828</mass>
+        <inertia>
+          <ixx>0.00232457</ixx>
+          <ixy>-1.61343e-09</ixy>
+          <ixz>-3.67392e-19</ixz>
+          <iyy>0.00232456</iyy>
+          <iyz>-4.56707e-13</iyz>
+          <izz>0.00308348</izz>
+        </inertia>
+      </inertial>
+      
+      <collision name='rear_right_wheel_link_collision'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      
+      <visual name='rear_right_wheel_link_visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bunker_common/meshes/wheel4_Link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Wheels for moving the robot -->
+    <link name='left_track'>
+      <pose >0 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>2.06</mass>
+          <inertia>
+              <ixx>0.002731</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.032554</iyy>
+              <iyz>0</iyz>
+              <izz>0.031391</izz>
+          </inertia>
+      </inertial>
+      <collision name='left_track_collision'>
+          <pose >0 0 0.01855 1.5708 -0 1.5708</pose>
+          <geometry>
+              <box>
+                  <size>0.009728 0.018094 0.05</size>
+              </box>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              <contact>
+                  <collide_bitmask>0</collide_bitmask>
+              </contact>
+          </surface>
+      </collision>
+    </link>
+    <joint name='left_track_j' type='revolute'>
+        <child>left_track</child>
+        <parent>base_link</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>0</lower>
+                <upper>0</upper>
+                <effort>0</effort>
+                <velocity>4</velocity>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track'>
+      <pose>0 0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>2.06</mass>
+          <inertia>
+              <ixx>0.002731</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.032554</iyy>
+              <iyz>0</iyz>
+              <izz>0.031391</izz>
+          </inertia>
+      </inertial>
+      <collision name='right_track_collision'>
+          <pose>0 0 0.01855 1.5708 -0 1.5708</pose>
+          <geometry>
+              <box>
+                  <size>0.009728 0.018094 0.05</size>
+              </box>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              <contact>
+                  <collide_bitmask>0</collide_bitmask>
+              </contact>
+          </surface>
+      </collision>
+    </link>
+    <joint name='right_track_j' type='revolute'>
+        <child>right_track</child>
+        <parent>base_link</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>0</lower>
+                <upper>0</upper>
+                <effort>0</effort>
+                <velocity>4</velocity>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+    <!--
+    <link name='left_track_wheel1'>
+      <pose>0.0 0.279 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='left_track_wheel1_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      
+      <visual name='left_track_wheel1_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+    
+    </link>
+    <joint name='left_track_wheel1_j' type='revolute'>
+        <child>left_track_wheel1</child>
+        <parent>left_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track_wheel1'>
+      <pose>0.0 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='right_track_wheel1_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      
+      <visual name='right_track_wheel1_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='right_track_wheel1_j' type='revolute'>
+        <child>right_track_wheel1</child>
+        <parent>right_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='left_track_wheel2'>
+      <pose>0.15 0.279 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='left_track_wheel2_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      
+      <visual name='left_track_wheel2_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='left_track_wheel2_j' type='revolute'>
+        <child>left_track_wheel2</child>
+        <parent>left_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track_wheel2'>
+      <pose>0.15 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='right_track_wheel2_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      
+      <visual name='right_track_wheel2_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='right_track_wheel2_j' type='revolute'>
+        <child>right_track_wheel2</child>
+        <parent>right_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+    -->
+    <link name='left_track_wheel3'>
+      <pose>0.30 0.279 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='left_track_wheel3_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              
+          </surface>
+      </collision>
+      
+      <visual name='left_track_wheel3_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='left_track_wheel3_j' type='revolute'>
+        <child>left_track_wheel3</child>
+        <parent>left_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track_wheel3'>
+      <pose>0.30 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='right_track_wheel3_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              
+          </surface>
+      </collision>
+      
+      <visual name='right_track_wheel3_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='right_track_wheel3_j' type='revolute'>
+        <child>right_track_wheel3</child>
+        <parent>right_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+    <!-- Back wheels-->
+    <!--
+    <link name='left_track_wheel4'>
+      <pose>-0.15 0.279 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='left_track_wheel4_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+      
+      <visual name='left_track_wheel4_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='left_track_wheel4_j' type='revolute'>
+        <child>left_track_wheel4</child>
+        <parent>left_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track_wheel4'>
+      <pose>-0.15 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='right_track_wheel4_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+          </surface>
+      </collision>
+
+      
+      <visual name='right_track_wheel4_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='right_track_wheel4_j' type='revolute'>
+        <child>right_track_wheel4</child>
+        <parent>right_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+    -->
+    <link name='left_track_wheel5'>
+      <pose>-0.30 0.279 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='left_track_wheel5_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              
+          </surface>
+      </collision>
+      
+      <visual name='left_track_wheel5_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='left_track_wheel5_j' type='revolute'>
+        <child>left_track_wheel5</child>
+        <parent>left_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+
+    <link name='right_track_wheel5'>
+      <pose>-0.30 -0.278 -0.189 0 -0 0</pose>
+      <inertial>
+          <mass>0.5</mass>
+          <inertia>
+              <ixx>0.001</ixx>
+              <ixy>0</ixy>
+              <ixz>0</ixz>
+              <iyy>0.001</iyy>
+              <iyz>0</iyz>
+              <izz>0.001</izz>
+          </inertia>
+      </inertial>
+
+      <collision name='right_track_wheel5_collision'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.19</radius>
+              </cylinder>
+          </geometry>
+          <surface>
+              <friction>
+                  <ode>
+                      <mu>0.5</mu>
+                      <mu2>3.19858</mu2>
+                  </ode>
+              </friction>
+              
+          </surface>
+      </collision>
+      
+      <visual name='right_track_wheel5_visual'>
+          <pose>0 0 0 1.5708 -0 0</pose>
+          <geometry>
+              <cylinder>
+                  <length>0.150</length>
+                  <radius>0.17</radius>
+              </cylinder>
+          </geometry>
+      </visual>
+      
+    </link>
+    <joint name='right_track_wheel5_j' type='revolute'>
+        <child>right_track_wheel5</child>
+        <parent>right_track</parent>
+        <axis>
+            <xyz>0 1 0</xyz>
+            <limit>
+                <lower>-1e+16</lower>
+                <upper>1e+16</upper>
+            </limit>
+            <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+    </joint>
+    <!-- Bunker plugins -->
+    
+    <plugin name="bunker_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+      <ros>
+        <namespace>/bunker</namespace>
+        <remapping>~/out:=joint_states</remapping>
+      </ros>
+
+      <update_rate>50</update_rate>
+      
+      <joint_name>front_left_wheel_joint</joint_name>
+      <joint_name>front_left_wheel_rol1_joint</joint_name>
+      <joint_name>front_left_wheel_rol2_joint</joint_name>
+      <joint_name>front_left_wheel_rol3_joint</joint_name>
+
+      <joint_name>front_right_wheel_joint</joint_name>
+      <joint_name>front_right_wheel_rol1_joint</joint_name>
+      <joint_name>front_right_wheel_rol2_joint</joint_name>
+      <joint_name>front_right_wheel_rol3_joint</joint_name>
+
+      <joint_name>rear_left_wheel_joint</joint_name>
+      <joint_name>rear_left_wheel_rol1_joint</joint_name>
+      <joint_name>rear_left_wheel_rol2_joint</joint_name>
+      <joint_name>rear_left_wheel_rol3_joint</joint_name>
+
+      <joint_name>rear_right_wheel_joint</joint_name>
+      <joint_name>rear_right_wheel_rol1_joint</joint_name>
+      <joint_name>rear_right_wheel_rol2_joint</joint_name>
+      <joint_name>rear_right_wheel_rol3_joint</joint_name>
+      
+    </plugin>  
+    
+    <!-- This plugin is violating the cinematic approach of the robot, it manage the robot as a single point in the plane. -->
+    <!--
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <ros>
+        <namespace>/bunker</namespace>
+        <remapping>cmd_vel:=/bunker/cmd_vel</remapping>
+        <remapping>odom:=/bunker/odom</remapping>
+      </ros>
+      
+      <update_rate>20.0</update_rate>
+      
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+    -->
+
+    <!-- Diff drive -->
+     <plugin name="gazebo_ros_tracked_vehicle" filename="libgazebo_ros_tracked_vehicle.so">
+      <ros>
+        <!-- Add a namespace -->
+        <namespace>/bunker</namespace>
+      </ros>
+
+      <!-- Update rate in Hz -->
+      <update_rate>50</update_rate>
+
+      <!-- wheels -->
+      <!-- Old wheels 
+      <num_wheel_pairs>8</num_wheel_pairs> <! - - TODO: to set this - ->
+      
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+
+      <left_joint>front_left_wheel_rol1_joint</left_joint>
+      <right_joint>front_right_wheel_rol1_joint</right_joint>
+
+      <left_joint>front_left_wheel_rol2_joint</left_joint>
+      <right_joint>front_right_wheel_rol2_joint</right_joint>
+
+      <left_joint>front_left_wheel_rol3_joint</left_joint>
+      <right_joint>front_right_wheel_rol3_joint</right_joint>
+
+      <left_joint>front_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+
+      <left_joint>rear_left_wheel_rol1_joint</left_joint>
+      <right_joint>rear_right_wheel_rol1_joint</right_joint>
+
+      <left_joint>rear_left_wheel_rol2_joint</left_joint>
+      <right_joint>rear_right_wheel_rol2_joint</right_joint>
+
+      <left_joint>rear_left_wheel_rol3_joint</left_joint>
+      <right_joint>rear_right_wheel_rol3_joint</right_joint>
+      -->
+      <!-- New wheels -->
+      <num_wheel_pairs>2</num_wheel_pairs>
+      <!--
+      <left_joint>left_track_wheel1_j</left_joint>
+      <right_joint>right_track_wheel1_j</right_joint>
+
+      <left_joint>left_track_wheel2_j</left_joint>
+      <right_joint>right_track_wheel2_j</right_joint>
+      -->
+      <left_joint>left_track_wheel3_j</left_joint>
+      <right_joint>right_track_wheel3_j</right_joint>
+      <!--
+      <left_joint>left_track_wheel4_j</left_joint>
+      <right_joint>right_track_wheel4_j</right_joint>
+      -->
+      <left_joint>left_track_wheel5_j</left_joint>
+      <right_joint>right_track_wheel5_j</right_joint>
+
+      <!-- kinematics -->
+      <wheel_separation>0.40</wheel_separation> <!-- TODO: set the correct value of this-->
+      
+      <wheel_diameter>0.17</wheel_diameter>
+      <wheel_diameter>0.17</wheel_diameter>
+      <!--<wheel_diameter>0.17</wheel_diameter>
+      <wheel_diameter>0.17</wheel_diameter>
+      <wheel_diameter>0.17</wheel_diameter>-->
+
+      <!-- limits -->
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+      <!-- input -->
+      <command_topic>cmd_vel</command_topic>
+
+      <!-- output -->
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+
+      <odometry_topic>odom</odometry_topic>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+
+      <!-- tracked -->
+      <track_mu>1.0</track_mu>
+      <track_mu2>0.5</track_mu2>
+
+    </plugin>
+
+    <!-- The other plugin can be see here: https://github.com/bascetta74/ugv_gazebo_sim/blob/master/bunker/bunker_gazebo_sim/models/bunker/bunker.sdf -->
+    
+    <!-- Edit by Mattia Dutto -->
+    <!--
+    <plugin filename="libSimpleTrackedVehiclePlugin.so" name="simple_tracked_vehicle">
+      <ros>
+        <namespace>/bunker</namespace>
+      </ros>
+      <body>base_link</body>
+      <left_track>tracker_left</left_track>
+      <right_track>tracker_right</right_track>
+      <track_mu>2</track_mu>
+      <track_mu2>0.5</track_mu2>
+    </plugin>
+    
+    <plugin filename="libKeysToCmdVelPlugin.so" name="keyboard_control">
+      <publish_as_twist>true</publish_as_twist>
+      <cmd_vel_topic>~/bunker/cmd_vel_twist</cmd_vel_topic>
+    </plugin>
+  
+    -->
+    <!--
+    <plugin filename="libgazebo_ros_tracked_vehicle.so" name="gazebo_ros_tracked_vehicle" >
+        
+        <ros>
+            <namespace>/bunker</namespace>
+        </ros>
+
+        <sterring_efficincy>1</sterring_efficincy>
+        <track_separation>0.50</track_separation>
+
+        <max_linear_speed>1</max_linear_speed>
+        <max_angular_speed>1</max_angular_speed>
+        
+        <left_track>tracker_left</left_track>
+        <right_track>tracker_right</right_track>
+        
+        <track_mu>2</track_mu>
+        <track_mu2>0.5</track_mu2>
+        
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
+
+        <odometry_frame>odom</odometry_frame>
+        
+        <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
+    -->
+    
+    <!-- 
+    <plugin name='tracked_vehicle_interface' filename='libgazebo_ros_tracked_vehicle_interface.so'>
+      <commandROSTopic>/bunker/cmd_vel</commandROSTopic>
+      <commandIGNTopic>~/bunker/cmd_vel_twist</commandIGNTopic>
+      
+      <robotBaseFrame>base_link</robotBaseFrame>
+      
+      <tracks_separation>0.571</tracks_separation>
+    </plugin>
+    -->  
+
+  </model>
+</sdf>
+
